@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const SignUpStyles = StyleSheet.create({
+const CommonStyles = StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
@@ -14,6 +14,9 @@ const SignUpStyles = StyleSheet.create({
     inner:{
         width:'90%',
     },
+    input:{
+        flex:1
+    },
     textInput:{
         backgroundColor:'white',
         flexDirection:'row',
@@ -24,7 +27,7 @@ const SignUpStyles = StyleSheet.create({
         elevation:2
     },
     textInputs:{
-        rowGap:15
+        rowGap:20,
     },
     inputConfirm:{
         position:'absolute',
@@ -35,7 +38,7 @@ const SignUpStyles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         columnGap:5,
-        marginBottom:20
+        marginBottom:20,
     },
     button:{
         backgroundColor:'red',
@@ -64,17 +67,35 @@ const SignUpStyles = StyleSheet.create({
         justifyContent:'center',
         borderRadius:20,
         elevation:1,
-
+    },
+    invalidBox: {
+        borderColor:'red',
+        borderWidth:1
+    },
+    invalidText:{
+        position:'absolute',
+        bottom:-5,
+        color:'red'
+    },
+    invalidSignUpText:{
+        position:'absolute',
+        bottom:-17,
+        color:'red',
+        fontSize:12
     }
 
+
 })
-const ForgotPasswordStyles = StyleSheet.create({})
-const LoginStyles = StyleSheet.create({})
+const ForgotPasswordStyles = StyleSheet.create({
+    textInputSection:{
+        rowGap:15,
+        marginBottom:50
+    }
+})
 
 
 
 export {
-    SignUpStyles,
+    CommonStyles,
     ForgotPasswordStyles,
-    LoginStyles
 }

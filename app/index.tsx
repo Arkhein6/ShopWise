@@ -18,6 +18,14 @@ const index = () => {
             backgroundColor:'yellow',
             padding:10,
         }}><Text>Go to Login Page</Text></Link>
+        <Link href={"/account/ForgotPassword"} style={{
+            backgroundColor:'yellow',
+            padding:10,
+        }}><Text>Go to Forgot Password Page</Text></Link>
+        <Link href={"/home"} style={{
+            backgroundColor:'yellow',
+            padding:10,
+        }}><Text>Go to HomePage</Text></Link>
     </View>
   )
 }
