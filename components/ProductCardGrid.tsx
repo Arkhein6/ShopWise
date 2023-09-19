@@ -1,20 +1,57 @@
-import { View, Text ,Image} from 'react-native'
+import { View, Text ,Image, ImageSourcePropType} from 'react-native'
+import { AntDesign } from '@expo/vector-icons';
 import React from 'react'
 
-const ProductCardGrid = () => {
+type productProps = {
+    imageUrl: ImageSourcePropType,
+    discountRate?: number,
+    isNew?: boolean,
+    ratings: number,
+    subTitle: string,
+    title: string,
+    actualPrice: number
+}
+const ProductCardGrid = (props: productProps) => {
   return (
     <View>
       <View>
+        <Image source={props.imageUrl} />
         <View>
-            <Text></Text>
+          {
+            props?.isNew && <Text>NEW</Text>
+          }
+          {
+            props?.discountRate && <Text>{props.discountRate}</Text>
+          }
+        </View>
+        <View>
+        <AntDesign name="hearto" size={24} color="black" />
         </View>
       </View>
-      <View></View>
-      <Text>Mango Boy</Text>
-      <Text>T-Shirt Sailing</Text>
       <View>
-        <Text>2.99$</Text>
-        <Text>30$</Text>
+        {
+          props.ratings ===0 ?
+          new Array(Math.ceil(props.ratings) + 1).map((curr,idx) => {
+            return (
+              <AntDesign name="star" size={24} color="yellow" />
+            )
+          }):
+          new Array(Math.ceil(props.ratings) + 1).map((curr,idx) => {
+            return (
+              <AntDesign name="staro" size={24} color="yellow" />
+            )
+          })   
+        }
+        <Text>({props.ratings})</Text>
+      </View>
+      <Text>{props.subTitle}</Text>
+      <Text>{props.title}</Text>
+      <View>
+        {
+          props?.discountRate && <Text>{props.discountRate * props.actualPrice}$</Text>
+
+        }
+        <Text>{props.actualPrice}$</Text>
       </View>
     </View>
   )

@@ -9,7 +9,7 @@ const CommonStyles = StyleSheet.create({
         fontWeight:'bold',
         fontSize:40,
         textAlign:'center',
-        marginBottom:60
+        marginBottom:60,
     },
     inner:{
         width:'90%',
