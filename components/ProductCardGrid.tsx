@@ -13,6 +13,7 @@ type productProps = {
 	actualPrice: number;
 };
 const ProductCardGrid = (props: productProps) => {
+	console.log(Math.floor(props.ratings))
 	return (
 		<View style={styles.container}>
 			<View style={styles.imagerange}>
@@ -23,7 +24,7 @@ const ProductCardGrid = (props: productProps) => {
 							<Text
 								style={{
 									color: "white",
-                  fontWeight:'bold'
+									fontWeight: "bold",
 								}}
 							>
 								NEW
@@ -32,42 +33,38 @@ const ProductCardGrid = (props: productProps) => {
 					)}
 					{props?.discountRate && (
 						<View style={styles.discountoverlay}>
-							<Text style={{color:'white',fontWeight:'bold'}}>
-							-{props.discountRate}%
-						</Text>
+							<Text
+								style={{ color: "white", fontWeight: "bold" }}
+							>
+								-{props.discountRate}%
+							</Text>
 						</View>
 					)}
 				</View>
 				<View style={styles.heart}>
-					<AntDesign name="hearto" size={24} color="black" />
+					<AntDesign name="hearto" size={18} color="gray" />
 				</View>
 			</View>
 			<View style={styles.ratings}>
-				{props.ratings === 0
-					? new Array(Math.floor(props.ratings))
-							.fill(0)
-							.map((curr, idx) => {
-								return (
-									<AntDesign
-										key={idx}
-										name="staro"
-										size={20}
-										color="yellow"
-									/>
-								);
-							})
-					: new Array(Math.floor(props.ratings))
-							.fill(0)
-							.map((curr, idx) => {
-								return (
-									<AntDesign
-										key={idx}
-										name="star"
-										size={20}
-										color="yellow"
-									/>
-								);
-							})}
+				{new Array(5).fill(0).map((curr, idx) => {
+					console.log(idx <= Math.floor(props.ratings))
+					return idx+1 <= Math.floor(props.ratings) ? (
+						<AntDesign
+							key={idx}
+							name="star"
+							size={15}
+							color="#FFBA49"
+						/>
+					) : (
+						<AntDesign
+							key={idx}
+							name="staro"
+							size={15}
+							color="black"
+						/>
+					);
+				})}
+
 				<Text>({props.ratings})</Text>
 			</View>
 			<Text style={styles.subtitle}>{props.subTitle}</Text>
@@ -82,7 +79,7 @@ const ProductCardGrid = (props: productProps) => {
 						$
 					</Text>
 				)}
-				<Text style={{ color: props?.discountRate ? "red" : "black" }}>
+				<Text style={{ color: props?.discountRate ? "#FF3E3E" : "black" }}>
 					{props.actualPrice}$
 				</Text>
 			</View>

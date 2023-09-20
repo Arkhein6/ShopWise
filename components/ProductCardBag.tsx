@@ -4,8 +4,6 @@ import { AntDesign, Fontisto,Entypo } from "@expo/vector-icons";
 
 type productProps = {
 	imageUrl: ImageSourcePropType;
-	ratings: number;
-	subTitle: string;
 	title: string;
 	actualPrice: number;
 	color: string;

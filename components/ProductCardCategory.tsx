@@ -1,19 +1,18 @@
 import { View, Text, ImageSourcePropType, Image } from "react-native";
 import React, { useState } from "react";
-import { AntDesign, Fontisto, Entypo } from "@expo/vector-icons";
-
+import { productCardCategory as styles } from "./styles";
 type productProps = {
 	imageUrl: ImageSourcePropType;
 	category: string;
 };
 const ProductCardCategory = (props: productProps) => {
 	return (
-		<View>
-			<View>
+		<View style={styles.container}>
+			<View style={styles.textrange}>
 				<Text>{props.category}</Text>
 			</View>
-			<View>
-				<Image source={props.imageUrl} />
+			<View style={styles.imagerange}>
+				<Image style={styles.image} source={props.imageUrl} />
 			</View>
 		</View>
 	);

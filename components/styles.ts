@@ -2,24 +2,21 @@ import { StyleSheet } from "react-native";
 
 const productCardGrid= StyleSheet.create({
     container:{
-        backgroundColor:'brown',
-        height:265,
-        width:155
+        width:155,
 
     },
     ratings:{
         flexDirection: 'row',
-        backgroundColor:'red',
         gap:2,
         alignItems:'center'
     },
     pricerange:{
-        backgroundColor:'blue',
         flexDirection:'row',
         gap:5
     },
     discountprice:{
-        textDecorationLine:'line-through'
+        textDecorationLine:'line-through',
+        color:'gray'
     },
     subtitle:{
         color:'gray',
@@ -36,8 +33,8 @@ const productCardGrid= StyleSheet.create({
     imageoverlay:{
         position:'absolute',
         flexDirection:'row',
-        top:10,
-        left:10,
+        top:6,
+        left:6,
         gap:5,
         alignItems:'center',
         justifyContent:'center'
@@ -70,22 +67,56 @@ const productCardGrid= StyleSheet.create({
         width:'100%',
         height:185,
         resizeMode:'cover',
-        borderRadius:12
+        borderRadius:10
         
     },
     heart:{
-        backgroundColor:'blue',
-        width:36,
-        height:36,
-        borderRadius:18,
+        backgroundColor:'white',
+        width:34,
+        height:34,
+        borderRadius:17,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        position:'absolute',
+        bottom:-15,
+        right:3,
+        zIndex:100
     }
 })
 const defaults= StyleSheet.create({
     
 })
+const productCardCategory= StyleSheet.create({
+    container: {
+        width:300,
+        height:100,
+        flexDirection:'row',
+        borderRadius:10
+    },
+    imagerange:{
+        width:'50%',
+        height:'100%',
+    },
+    textrange:{
+        width:'50%',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'white'
+    },
+    image:{
+        width:'100%',
+        height:'100%',
+        borderTopRightRadius:10,
+        borderBottomRightRadius:10
+
+    }
+})
+const productCardBag = StyleSheet.create({
+    
+})
 export {
     defaults,
-    productCardGrid
+    productCardGrid,
+    productCardCategory,
+    productCardBag
 }

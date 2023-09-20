@@ -42,6 +42,12 @@ const TabLayout = () => {
             tabBarActiveTintColor:'red'
 
         }}/>
+        <Tabs.Screen name='Categories' options={{
+            href: null,
+            headerRight: () => (
+                <MaterialIcons name="search" size={20} color="black" />
+            )
+        }}/>
     </Tabs>
   )
 }
