@@ -1,7 +1,6 @@
 import {View,Text,Pressable} from 'react-native'
 import { Link } from 'expo-router'
 
-
 const index = () => {
   return (
     <View style={{

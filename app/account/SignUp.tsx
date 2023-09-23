@@ -6,6 +6,7 @@ import { Ionicons, Entypo, AntDesign, FontAwesome } from "@expo/vector-icons";
 import { Router, useRouter } from "expo-router";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import createUser from "../../Utils/account/createUser";
 
 const SignupSchema = Yup.object().shape({
 	Username: Yup.string().required("Required").min(2, "Username is too short"),
@@ -34,7 +35,7 @@ const SignUp = () => {
 						Password: "",
 					}}
 					validationSchema={SignupSchema}
-					onSubmit={(values) => console.log(values)}
+					onSubmit={(values) => createUser(values)}
 					validateOnChange={true}
 				>
 					{({
