@@ -13,7 +13,6 @@ type productProps = {
 	actualPrice: number;
 };
 const ProductCardGrid = (props: productProps) => {
-	console.log(Math.floor(props.ratings))
 	return (
 		<View style={styles.container}>
 			<View style={styles.imagerange}>
@@ -46,8 +45,7 @@ const ProductCardGrid = (props: productProps) => {
 				</View>
 			</View>
 			<View style={styles.ratings}>
-				{new Array(5).fill(0).map((curr, idx) => {
-					console.log(idx <= Math.floor(props.ratings))
+				{new Array(5).fill(0).map((curr, idx) => {					
 					return idx+1 <= Math.floor(props.ratings) ? (
 						<AntDesign
 							key={idx}

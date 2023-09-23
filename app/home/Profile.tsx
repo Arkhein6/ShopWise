@@ -8,7 +8,7 @@ const Profile = () => {
 			<View>
 				<Text>My Profile</Text>
 				<View>
-					<Image source={image} />
+					{/* <Image source={image} /> */}
 					<View>
 						<Text>Matilda Brown</Text>
 						<Text>matildabrown@gmail.com</Text>

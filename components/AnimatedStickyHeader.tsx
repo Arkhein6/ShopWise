@@ -14,7 +14,6 @@ const AnimatedStickyHeader = ({ children }: { children: ReactNode }) => {
 	const scrollHandler = useAnimatedScrollHandler((event) => {
 		if (event.contentOffset.y <= 200) {
 			translationY.value = value - event.contentOffset.y;
-			console.log("asa");
 		}
 	});
 

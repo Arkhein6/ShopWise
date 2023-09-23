@@ -1,75 +1,69 @@
 import { View, Text, ImageSourcePropType, Image } from "react-native";
-import React from "react";
-import { AntDesign, Fontisto,Entypo } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { AntDesign, Fontisto, Entypo } from "@expo/vector-icons";
+import { productCardFavorites as styles } from "./styles";
 
 type productProps = {
 	imageUrl: ImageSourcePropType;
-	discountRate?: number;
-	isNew?: boolean;
-	ratings: number;
-	subTitle: string;
 	title: string;
+	subtitle: string;
 	actualPrice: number;
 	color: string;
 	size: string;
+	ratings: number
 };
 const ProductCardFavorites = (props: productProps) => {
+	const [orderUnits, setOrderUnits] = useState(1);
 	return (
-		<View>
-			<View>
-				<View>
-					<Image source={props.imageUrl} />
-					{props?.isNew && <Text>NEW</Text>}
-					{props?.discountRate && <Text>{props.discountRate}</Text>}
-				</View>
+		<View style={styles.container}>
+			<View style={styles.imagerange}>
+				<Image style={styles.image} source={props.imageUrl} />
 			</View>
-			<View>
-				<Text>{props.subTitle}</Text>
-				<Text>{props.title}</Text>
-				<View>
-					<Text>Color:{props.color}</Text>
-					<Text>Size:{props.size}</Text>
+			<View style={styles.textrange}>
+			<Text style={styles.subtitle}>{props.subtitle}</Text>
+				<Text style={styles.title}>{props.title}</Text>
+				<View style={styles.specsrange}>
+					<Text style={[{fontSize:13, color:'gray'},]}>Color: </Text>
+					<Text style={[{fontSize:13,paddingRight:10}]}>{props.color}</Text>
+					<Text style={[{fontSize:13, color:'gray'},]}>Size: </Text>
+					<Text style={[{fontSize:13}]}>{props.size}</Text>
 				</View>
-				<View>
-					<View>
-						{props?.discountRate && (
-							<Text>
-								{props.discountRate * props.actualPrice}$
-							</Text>
-						)}
-						<Text>{props.actualPrice}$</Text>
-					</View>
-					{props.ratings === 0
-						? new Array(Math.ceil(props.ratings) + 1).map(
-								(curr, idx) => {
-									return (
-										<AntDesign
-											name="star"
-											size={24}
-											color="yellow"
-										/>
-									);
-								}
-						  )
-						: new Array(Math.ceil(props.ratings) + 1).map(
-								(curr, idx) => {
-									return (
-										<AntDesign
-											name="staro"
-											size={24}
-											color="yellow"
-										/>
-									);
-								}
-						  )}
-					<Text>({props.ratings})</Text>
+				<View style={styles.priceratingsrange}>
+				<View style={styles.price}>
+					<Text>{props.actualPrice}$</Text>
 				</View>
-				<View>
-					<Fontisto name="shopping-bag" size={24} color="black" />
+				<View style={styles.ratings}>
+				{new Array(5).fill(0).map((curr, idx) => {					
+					return idx+1 <= Math.floor(props.ratings) ? (
+						<AntDesign
+							key={idx}
+							name="star"
+							size={15}
+							color="#FFBA49"
+						/>
+					) : (
+						<AntDesign
+							key={idx}
+							name="staro"
+							size={15}
+							color="black"
+						/>
+					);
+				})}
+
+				<Text>({props.ratings})</Text>
+			</View>
+
 				</View>
-                <View>
-                <Entypo name="cross" size={24} color="black" />
-                </View>
+				
+				<View style={styles.cross}>
+					<Entypo
+						name="cross"
+						size={20}
+						color="black"
+					/>
+				</View>
+				
 			</View>
 		</View>
 	);
