@@ -399,7 +399,49 @@ const productCardFavorites = StyleSheet.create({
     subtitle:{
         color:'gray',
     },
+})
 
+const shippingAddressCard = StyleSheet.create({
+    container:{
+        width:300,
+        gap:10,
+        backgroundColor:'white',
+        padding:10,
+        elevation:2,
+        borderRadius:5
+
+    },
+    titlerange:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+
+    },
+    edit:{
+        color:'red'
+
+    },
+    checkboxrange:{
+        flexDirection:'row',
+        gap:10
+
+    },
+    checkbox:{
+        width:20,
+        height:20,
+        backgroundColor:'white',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:4
+
+    },
+    addrange:{
+        width:40,
+        height:40,
+        backgroundColor:'black',
+        borderRadius:20,
+        justifyContent:'center',
+        alignItems:'center'
+    }
 })
 export {
     defaults,
@@ -408,5 +450,6 @@ export {
     productCardBag,
     productCardList,
     productCardOrder,
-    productCardFavorites
+    productCardFavorites,
+    shippingAddressCard
 }

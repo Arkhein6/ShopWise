@@ -33,7 +33,7 @@ const TabLayout = () => {
             },
 
         }} />
-        <Tabs.Screen name='Profile' options={{
+        <Tabs.Screen name='profile'  options={{
             tabBarIcon: ({focused,color,size}) => {
                 return <Entypo name="user" size={size} color={color} />
             },
@@ -42,8 +42,6 @@ const TabLayout = () => {
             headerRight: () => (
                 <MaterialIcons name="search" size={24} color="black" />
             )
-            
-
         }}/>
         <Tabs.Screen name='Categories' options={{
             href: null,
@@ -51,6 +49,7 @@ const TabLayout = () => {
                 <MaterialIcons name="search" size={20} color="black" />
             )
         }}/>
+        
     </Tabs>
   )
 }

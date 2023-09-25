@@ -9,10 +9,10 @@ import * as Yup from "yup";
 import createUser from "../../Utils/account/createUser";
 
 const SignupSchema = Yup.object().shape({
-	Username: Yup.string().required("Required").min(2, "Username is too short"),
-	Email: Yup.string().email("Not a valid Email Address").required("Required"),
-	Password: Yup.string()
-		.min(6, "Password must be 6 to 20 characters long")
+	name: Yup.string().required("Required").min(2, "name is too short"),
+	email: Yup.string().email("Not a valid email Address").required("Required"),
+	password: Yup.string()
+		.min(6, "password must be 6 to 20 characters long")
 		.required("Required"),
 });
 
@@ -30,12 +30,15 @@ const SignUp = () => {
 				<Text style={styles.title}>SignUp</Text>
 				<Formik
 					initialValues={{
-						Username: "",
-						Email: "",
-						Password: "",
+						name: "",
+						email: "",
+						password: "",
 					}}
 					validationSchema={SignupSchema}
-					onSubmit={(values) => createUser(values)}
+					onSubmit={(values,actions): void => {
+						createUser(values)
+						actions.resetForm()				
+					}}
 					validateOnChange={true}
 				>
 					{({
@@ -45,26 +48,27 @@ const SignUp = () => {
 						values,
 						errors,
 						touched,
+						isSubmitting
 					}) => (
 						<>
 							<View style={styles.textInputs}>
 								<View
 									style={[
 										styles.textInput,
-										errors.Username && touched.Username
+										errors.name && touched.name
 											? styles.invalidBox
 											: null,
 									]}
 								>
 									<TextInput
-										placeholder="Username"
-										onChangeText={handleChange("Username")}
-										onBlur={handleBlur("Username")}
-										value={values.Username}
+										placeholder="name"
+										onChangeText={handleChange("name")}
+										onBlur={handleBlur("name")}
+										value={values.name}
 										style={styles.input}
 									></TextInput>
-									{values.Username.length >= 1 &&
-										(errors.Username && touched.Username ? (
+									{values.name.length >= 1 &&
+										(errors.name && touched.name ? (
 											<FontAwesome
 												name="times"
 												size={20}
@@ -79,29 +83,29 @@ const SignUp = () => {
 												style={styles.inputConfirm}
 											/>
 										))}
-									{errors.Username && touched.Username ? (
+									{errors.name && touched.name ? (
 										<Text style={styles.invalidSignUpText}>
-											{errors.Username}
+											{errors.name}
 										</Text>
 									) : null}
 								</View>
 								<View
 									style={[
 										styles.textInput,
-										errors.Email && touched.Email
+										errors.email && touched.email
 											? styles.invalidBox
 											: null,
 									]}
 								>
 									<TextInput
-										placeholder="Email"
-										onChangeText={handleChange("Email")}
-										onBlur={handleBlur("Email")}
-										value={values.Email}
+										placeholder="email"
+										onChangeText={handleChange("email")}
+										onBlur={handleBlur("email")}
+										value={values.email}
 										style={styles.input}
 									></TextInput>
-									{values.Email.length >= 1 &&
-										(errors.Email && touched.Email ? (
+									{values.email.length >= 1 &&
+										(errors.email && touched.email ? (
 											<FontAwesome
 												name="times"
 												size={20}
@@ -116,29 +120,29 @@ const SignUp = () => {
 												style={styles.inputConfirm}
 											/>
 										))}
-										{errors.Email && touched.Email ? (
+										{errors.email && touched.email ? (
 										<Text style={styles.invalidSignUpText}>
-											{errors.Email}
+											{errors.email}
 										</Text>
 									) : null}
 								</View>
 								<View
 									style={[
 										styles.textInput,
-										errors.Password && touched.Password
+										errors.password && touched.password
 											? styles.invalidBox
 											: null,
 									]}
 								>
 									<TextInput
-										placeholder="Password"
-										onChangeText={handleChange("Password")}
-										onBlur={handleBlur("Password")}
-										value={values.Password}
+										placeholder="password"
+										onChangeText={handleChange("password")}
+										onBlur={handleBlur("password")}
+										value={values.password}
 										style={styles.input}
 									></TextInput>
-									{values.Password.length >= 1 &&
-										(errors.Password && touched.Password ? (
+									{values.password.length >= 1 &&
+										(errors.password && touched.password ? (
 											<FontAwesome
 												name="times"
 												size={20}
@@ -153,9 +157,9 @@ const SignUp = () => {
 												style={styles.inputConfirm}
 											/>
 										))}
-										{errors.Password && touched.Password ? (
+										{errors.password && touched.password ? (
 										<Text style={styles.invalidSignUpText}>
-											{errors.Password}
+											{errors.password}
 										</Text>
 									) : null}
 								</View>
@@ -175,8 +179,8 @@ const SignUp = () => {
 									</View>
 								</Pressable>
 							</View>
-							<View style={styles.button}>
-								<Pressable onPress={() => handleSubmit()}>
+							<View style={[styles.button,isSubmitting? styles.disabledButton : null]}>
+								<Pressable disabled={isSubmitting} onPress={() => handleSubmit()}>
 									<Text>SIGN UP</Text>
 								</Pressable>
 							</View>

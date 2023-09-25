@@ -40,12 +40,15 @@ const CommonStyles = StyleSheet.create({
         columnGap:5,
         marginBottom:20,
     },
-    button:{
+    button: {
         backgroundColor:'red',
         height:50,
         alignItems:'center',
         justifyContent:'center',
         borderRadius:30,
+    },
+    disabledButton:{
+        backgroundColor:'gray'
     },
     links:{
         alignItems:'center',
