@@ -42,9 +42,7 @@ const ShippingAddressCard = (details: shippingProps) => {
 					<Text>Use as the shipping address</Text>
 				</View>
 			</View>
-			<Pressable style={styles.addrange}>
-				<AntDesign name="plus" size={26} color="white" />
-			</Pressable>
+			
 		</View>
 	);
 };

@@ -431,7 +431,9 @@ const shippingAddressCard = StyleSheet.create({
         backgroundColor:'white',
         alignItems:'center',
         justifyContent:'center',
-        borderRadius:4
+        borderRadius:4,
+        borderColor:'gray',
+        borderWidth:1
 
     },
     addrange:{
@@ -443,6 +445,68 @@ const shippingAddressCard = StyleSheet.create({
         alignItems:'center'
     }
 })
+const paymentCard = StyleSheet.create({
+    container:{
+        width:'100%',
+        height:'auto',
+    },
+    addrange:{
+        width:40,
+        height:40,
+        backgroundColor:'black',
+        borderRadius:20,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    checkboxrange:{
+        flexDirection:'row',
+        gap:10,
+        marginLeft:'5%'
+    },
+    checkbox:{
+        width:20,
+        height:20,
+        backgroundColor:'white',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:4,
+        borderColor:'gray',
+        borderWidth:1
+
+    },
+    imagerange:{
+        position:'relative'
+    },
+    image:{
+        width:'100%',
+        height:300
+    },
+    idrange:{
+        flexDirection:'row',
+        gap:10,
+        position:'absolute',
+        top:'40%',
+        left:'10%'
+    },
+    id:{
+        fontSize:25,
+        color:'white'
+    },
+    userrange:{
+        flexDirection:'row',
+        gap:40,
+        position:'absolute',
+        left:'10%',
+        bottom:'22%'
+    },
+    user:{
+        gap:5
+    },
+    usertext:{
+        color:'white'
+    }
+
+})
 export {
     defaults,
     productCardGrid,
@@ -451,5 +515,6 @@ export {
     productCardList,
     productCardOrder,
     productCardFavorites,
-    shippingAddressCard
+    shippingAddressCard,
+    paymentCard
 }
