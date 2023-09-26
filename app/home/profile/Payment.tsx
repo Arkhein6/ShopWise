@@ -1,10 +1,20 @@
-import { View, Text, Pressable,Modal } from "react-native";
+import { View, Text, Pressable,Modal,Button } from "react-native";
 import React from "react";
 import PaymentCard from "../../../components/PaymentCard";
 import { AntDesign } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import PaymentModal from "./modals/PaymentModal";
 
 const Payment = () => {
+	const [modalVisible, setModalVisible] = React.useState(false);
+
+	const openModal = () => {
+	  setModalVisible(true);
+	};
+  
+	const closeModal = () => {
+	  setModalVisible(false);
+	};
 	return (
 		<View>
 			<Text>Payment</Text>
@@ -13,8 +23,7 @@ const Payment = () => {
 				holderName="Jennyfer Doe"
 				expiryDate="05/23"
 			/>
-			<Link href={"/home/profile/modals/PaymentModal"} asChild>
-				<Pressable
+				<Pressable onPress={openModal}
 					style={{
 						width: 40,
 						height: 40,
@@ -26,7 +35,8 @@ const Payment = () => {
 				>
 					<AntDesign name="plus" size={26} color="white" />
 				</Pressable>
-			</Link>
+			<PaymentModal visible={modalVisible} onClose={closeModal} />
+			
 		</View>
 	);
 };

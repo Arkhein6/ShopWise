@@ -7,9 +7,6 @@ const rootLayout = () => {
     <Stack screenOptions={{
         headerShown: false
     }}>
-        <Stack.Screen name="PaymentModal" options={{
-            presentation: 'modal'
-        }} />
     </Stack>
   )
 }

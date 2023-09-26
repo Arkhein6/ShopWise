@@ -1,17 +1,38 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { Link, router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import {
+	View,
+	Text,
+	Modal,
+	TouchableWithoutFeedback,
+	Pressable,
+} from "react-native";
+import React, { ReactNode } from "react";
 
-const PaymentModal = () => {
-
+const PaymentModal = ({
+	visible,
+	onClose,
+}: {
+	visible: boolean;
+	onClose: () => void;
+}) => {
 	return (
-		<View style={{
-			alignItems: 'center', justifyContent: 'center', }}
-		>	
-			<Text>damn</Text>
-			<StatusBar style="dark" />
-		</View>
+		<Modal
+			animationType="slide"
+			transparent={true}
+			visible={visible}
+			onRequestClose={onClose}
+		>
+			<Pressable onPress={onClose} style={{ flex: 1 }}></Pressable>
+			<View
+				style={{
+					backgroundColor: "red",
+					width: "100%",
+					position: "absolute",
+					bottom: 0,
+				}}
+			>
+				<Text>Add New Card</Text>
+			</View>
+		</Modal>
 	);
 };
 
