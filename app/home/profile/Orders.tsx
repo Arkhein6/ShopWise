@@ -5,6 +5,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import { orders as styles } from "./styles";
 
 const Orders = () => {
+  const [filter,setFilter] = React.useState<string>("Delivered")
+  const filtersArray: string[] = ['Delivered','Processing','Cancelled','Pending']
 	return (
 		<View
 			style={{
@@ -15,25 +17,25 @@ const Orders = () => {
 			<View
 				style={{
 					width: "90%",
-					backgroundColor: "red",
+          gap:20
 				}}
 			>
-				<Text>My Orders</Text>
+				<Text style={styles.maintitle}>My Orders</Text>
 				<ScrollView
 					horizontal
 					contentContainerStyle={styles.filtercontainer}
+          showsHorizontalScrollIndicator={false}
 				>
-					<Pressable style={styles.filters}>
-						<Text>Delivered</Text>
-					</Pressable>
-					<Pressable style={styles.filters}>
-						<Text>Processing</Text>
-					</Pressable>
-					<Pressable style={styles.filters}>
-						<Text>Cancelled</Text>
-					</Pressable>
+					{
+            filtersArray.map((current,idx) => (
+              <Pressable key={idx} onPress={() => {
+                setFilter(current)
+              }} style={[styles.filters,current === filter ? styles.currentfilter: null]}>
+                <Text style={current === filter ? {color:'white' }: null}>{current}</Text>
+              </Pressable>
+            ))
+          }
 				</ScrollView>
-				<Text>Orderstree</Text>
 				<MyOrdersCard
 					orderNumber={1947034}
 					trackingNumber={3475453455}
