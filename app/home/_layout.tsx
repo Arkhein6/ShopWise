@@ -19,12 +19,18 @@ const TabLayout = () => {
             tabBarIcon: ({focused,color,size}) => {
                 return <MaterialIcons name="shopping-cart" size={size} color={color} />
             },
+            headerShown:true,
+            headerTitle:'',
+            headerRight: () => (
+                <MaterialIcons name="search" size={24} color="black" />
+            )
 
         }}/>
         <Tabs.Screen name='Bag' options={{
             tabBarIcon: ({focused,color,size}) => {
                 return <Fontisto name="shopping-bag" size={size} color={color} />
             },
+            
 
         }}/>
         <Tabs.Screen name='Favorites' options={{
@@ -41,12 +47,6 @@ const TabLayout = () => {
             headerTitle:'',
             headerRight: () => (
                 <MaterialIcons name="search" size={24} color="black" />
-            )
-        }}/>
-        <Tabs.Screen name='Categories' options={{
-            href: null,
-            headerRight: () => (
-                <MaterialIcons name="search" size={20} color="black" />
             )
         }}/>
         
