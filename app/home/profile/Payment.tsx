@@ -27,9 +27,6 @@ const Payment = () => {
 					<AntDesign name="plus" size={26} color="white" />
 				</Pressable>
 			</Link>
-			<Modal>
-				
-			</Modal>
 		</View>
 	);
 };
