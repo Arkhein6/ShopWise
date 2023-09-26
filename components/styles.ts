@@ -507,6 +507,54 @@ const paymentCard = StyleSheet.create({
     }
 
 })
+const myOrdersCard = StyleSheet.create({
+    container:{
+        padding:15,
+        backgroundColor:'white',
+        width:'100%',
+        gap:15,
+        borderRadius:10,
+        elevation:2,
+    },
+    orderrange:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    trackingrange:{
+        gap:5
+    },
+    boldtext:{
+        fontWeight:'bold'
+    },
+    buttonrange:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
+    quantityrange:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    button:{
+        borderWidth:2,
+        borderColor:'black',
+        borderRadius:20,
+        alignItems:'center',
+        justifyContent:'center',
+        width:100,
+        padding:10
+    },
+    text:{
+        color:'green'
+    },
+    graytext:{
+        color:'gray'
+    }
+
+    
+
+
+})
 export {
     defaults,
     productCardGrid,
@@ -516,5 +564,6 @@ export {
     productCardOrder,
     productCardFavorites,
     shippingAddressCard,
-    paymentCard
+    paymentCard,
+    myOrdersCard
 }
