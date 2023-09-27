@@ -36,7 +36,6 @@ const Payment = () => {
 					<AntDesign name="plus" size={26} color="white" />
 				</Pressable>
 			<PaymentModal visible={modalVisible} onClose={closeModal} />
-			
 		</View>
 	);
 };
