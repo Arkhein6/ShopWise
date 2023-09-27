@@ -45,13 +45,6 @@ const paymentModal = StyleSheet.create({
 		position: "absolute",
 		right: 10,
 	},
-	signInCheck: {
-		alignSelf: "flex-end",
-		flexDirection: "row",
-		alignItems: "center",
-		columnGap: 5,
-		marginBottom: 20,
-	},
 	button: {
 		backgroundColor: "red",
 		height: 50,
@@ -62,27 +55,6 @@ const paymentModal = StyleSheet.create({
 	},
 	disabledButton: {
 		backgroundColor: "gray",
-	},
-	links: {
-		alignItems: "center",
-		justifyContent: "center",
-		rowGap: 10,
-		position: "absolute",
-		bottom: 0,
-		width: "100%",
-	},
-	socialLinks: {
-		flexDirection: "row",
-		columnGap: 10,
-	},
-	link: {
-		backgroundColor: "white",
-		height: 60,
-		width: 80,
-		alignItems: "center",
-		justifyContent: "center",
-		borderRadius: 20,
-		elevation: 1,
 	},
 	invalidBox: {
 		borderColor: "red",
