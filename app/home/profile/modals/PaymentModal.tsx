@@ -12,7 +12,6 @@ import * as Yup from "yup";
 import { Router, useRouter } from "expo-router";
 import { Ionicons, Entypo, AntDesign, FontAwesome } from "@expo/vector-icons";
 import { paymentModal as styles } from "./styles";
-import { StatusBar } from "expo-status-bar";
 
 
 const LoginSchema = Yup.object().shape({
@@ -40,7 +39,6 @@ const PaymentModal = ({
 			visible={visible}
 			onRequestClose={onClose}
 		>	
-				<StatusBar translucent={false} />
 			
 				<Pressable
 					onPress={onClose}
