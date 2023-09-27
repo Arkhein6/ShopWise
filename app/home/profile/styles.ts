@@ -27,11 +27,20 @@ const settings = StyleSheet.create({
 	},
 	inner: {
 		width: "90%",
+        gap:20
 	},
 	switchrange: {
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
+	},
+	personalrange: {
+        gap:20
+
+	},
+	passwordrange: {
+        gap:20
+
 	},
 	notificationsrange: {
 		gap: 10,
@@ -48,18 +57,18 @@ const settings = StyleSheet.create({
 		elevation: 2,
 		paddingLeft: 15,
 		backgroundColor: "white",
-        justifyContent:'center',
-        gap:2
+		justifyContent: "center",
+		gap: 2,
 	},
 	uppertext: {
 		fontSize: 12,
 	},
-	subtitlerange:{
-        flexDirection:'row',
-        justifyContent:'space-between'
-    },
-    graytext:{
-        color:'gray'
-    }
+	subtitlerange: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+	},
+	graytext: {
+		color: "gray",
+	},
 });
 export { orders, settings };
