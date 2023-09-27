@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 import ProductCardCategory from '../../../components/ProductCardCategory'
-import roughImage from "../../../assets/image/pexels8.jpg"
+import roughImage from "../../../assets/images/pexels8.jpg"
 
 const Categories = () => {
   const categories: string[] = ["New","Clothes","Shoes","Accessories","Legginggs"]
