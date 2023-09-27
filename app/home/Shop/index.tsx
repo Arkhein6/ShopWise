@@ -41,7 +41,7 @@ const index = () => {
 						</Text>
 					</Pressable>
 				))}
-                <Link href={"/"} asChild>
+                <Link href={'/home/Shop/Categories'} asChild>
                 <Pressable style={[styles.shopcategories,]}>
                     <Text>View all</Text>
                 </Pressable>
