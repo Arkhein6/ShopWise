@@ -35,11 +35,11 @@ const settings = StyleSheet.create({
 		alignItems: "center",
 	},
 	personalrange: {
-        gap:20
+        gap:15
 
 	},
 	passwordrange: {
-        gap:20
+        gap:15
 
 	},
 	notificationsrange: {
