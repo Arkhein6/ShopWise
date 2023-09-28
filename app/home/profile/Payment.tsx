@@ -17,7 +17,6 @@ const Payment = () => {
 	};
 	return (
 		<View>
-			<Text>Payment</Text>
 			<PaymentCard
 				id={3947}
 				holderName="Jennyfer Doe"
