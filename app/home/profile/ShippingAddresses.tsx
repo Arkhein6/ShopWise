@@ -2,6 +2,7 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import ShippingAddressCard from "../../../components/ShippingAddressCard";
 import { AntDesign } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 const ShippingAddresses = () => {
 	return (
@@ -19,6 +20,7 @@ const ShippingAddresses = () => {
 					streetAddress="3 Newbridge COurt"
 					mainAddress="Chino hills, CA 91709, United States"
 				/>
+				<Link href={'/home/profile/modals/addShippingAddress'} asChild>
 				<Pressable
 					style={{
 						width: 40,
@@ -28,9 +30,10 @@ const ShippingAddresses = () => {
 						justifyContent: "center",
 						alignItems: "center",
 					}}
-				>
+					>
 					<AntDesign name="plus" size={26} color="white" />
 				</Pressable>
+					</Link>
 			</View>
 		</View>
 	);
