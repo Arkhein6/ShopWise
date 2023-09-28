@@ -88,10 +88,9 @@ const defaults= StyleSheet.create({
 })
 const productCardCategory= StyleSheet.create({
     container: {
-        width:300,
-        height:120,
+        width:'100%',
+        height:110,
         flexDirection:'row',
-        borderRadius:10
     },
     imagerange:{
         width:'50%',
@@ -101,7 +100,9 @@ const productCardCategory= StyleSheet.create({
         width:'50%',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'white'
+        backgroundColor:'white',
+        borderTopLeftRadius:10,
+        borderBottomLeftRadius:10
     },
     image:{
         width:'100%',
