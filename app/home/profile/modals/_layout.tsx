@@ -7,6 +7,11 @@ const rootLayout = () => {
     <Stack screenOptions={{
         headerShown: false
     }}>
+      <Stack.Screen name="addShippingAddress" options={{
+        headerShown:true,
+        headerTitle:"Adding Shipping Address",
+        
+      }} />
     </Stack>
   )
 }
