@@ -2,6 +2,8 @@ import { View, Text, Pressable } from "react-native";
 import React,{useState} from "react";
 import { Switch } from "react-native";
 import { settings as styles } from "./styles";
+import PasswordChangeModal from "./modals/PasswordChangeModal";
+import PersonalInformationChangeModal from "./modals/PersonalInformationChangeModal";
 
 const Settings = () => {
   const [switchCheck,setSwitchCheck] = useState<boolean>(false)
@@ -25,7 +27,7 @@ const Settings = () => {
 						<Text style={styles.subtitle}>
 							Personal information
 						</Text>
-						<Pressable>
+						<Pressable onPress={() => openModal(setPersonalModalVisible)}>
 							<Text style={styles.graytext}>Change</Text>
 						</Pressable>
 					</View>
@@ -72,6 +74,8 @@ const Settings = () => {
 					</View>
 				</View>
 			</View>
+			<PasswordChangeModal visible={passowrdModalVisible} onClose={() => (closeModal(setPasswordModalVisible))}/>
+			<PersonalInformationChangeModal visible={personalModalVisible} onClose={() => closeModal(setPersonalModalVisible)}/>
 		</View>
 	);
 };
