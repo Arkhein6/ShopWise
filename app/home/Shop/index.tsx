@@ -42,7 +42,7 @@ const index = () => {
 					</Pressable>
 				))}
                 <Link href={'/home/Shop/Categories'} asChild>
-                <Pressable style={[styles.shopcategories,]}>
+                <Pressable style={styles.allcategoriesbutton}>
                     <Text>View all</Text>
                 </Pressable>
                 </Link>
