@@ -2,7 +2,7 @@ import { View, Text, Pressable, TextInput } from "react-native";
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { paymentModal as styles } from "./styles";
+import { addShippingAddress as styles } from "./styles";
 import { Ionicons, Entypo, AntDesign, FontAwesome } from "@expo/vector-icons";
 
 const addShippingAddress = () => {
@@ -16,7 +16,11 @@ const addShippingAddress = () => {
 	});
 
 	return (
-		<View>
+		<View style={{
+			flex:1,
+			alignItems:'center',
+			justifyContent:'center'
+		}}>
 			<Formik
 				onSubmit={(values) => console.log(values)}
 				initialValues={{
@@ -38,7 +42,7 @@ const addShippingAddress = () => {
 					errors,
 					touched,
 				}) => (
-					<>
+					<View style={styles.container}>
 						<View style={styles.textInputs}>
 							<View
 								style={[
@@ -266,10 +270,12 @@ const addShippingAddress = () => {
 						</View>
 						<View style={styles.button}>
 							<Pressable onPress={() => handleSubmit()}>
-								<Text>Save Address</Text>
+								<Text style={{
+									color:'white'
+								}}>Save Address</Text>
 							</Pressable>
 						</View>
-					</>
+					</View>
 				)}
 			</Formik>
 		</View>
