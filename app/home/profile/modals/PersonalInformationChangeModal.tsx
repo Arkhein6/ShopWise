@@ -16,11 +16,7 @@ import { paymentModal as styles } from "./styles";
 
 const LoginSchema = Yup.object().shape({
 	name: Yup.string().required("name is required"),
-	expireDate: Yup.string().required("it is required").max(6, "cannot exceed"),
-	id: Yup.number().required("it is required").max(3, "cannot exceed three"),
-	cardNumber: Yup.number()
-		.required("it is required")
-		.max(16, "cannot exceed three"),
+	dateOfBirth: Yup.date().required("date is required")
 });
 
 const PersonalInformationChangeModal = ({
@@ -50,9 +46,7 @@ const PersonalInformationChangeModal = ({
 					<Formik
 						initialValues={{
 							name: "",
-							cardNumber: "",
-							expireDate: "",
-							id: "",
+							dateOfBirth: "",
 						}}
 						validationSchema={LoginSchema}
 						onSubmit={(values) => console.log(values)}
@@ -77,7 +71,7 @@ const PersonalInformationChangeModal = ({
 										]}
 									>
 										<TextInput
-											placeholder="Name of Card"
+											placeholder="name of Card"
 											onChangeText={handleChange("name")}
 											onBlur={handleBlur("name")}
 											value={values.name}
@@ -110,8 +104,8 @@ const PersonalInformationChangeModal = ({
 									<View
 										style={[
 											styles.textInput,
-											errors.cardNumber &&
-											touched.cardNumber
+											errors.dateOfBirth &&
+											touched.dateOfBirth
 												? styles.invalidBox
 												: null,
 										]}
@@ -119,15 +113,15 @@ const PersonalInformationChangeModal = ({
 										<TextInput
 											placeholder="Card Number"
 											onChangeText={handleChange(
-												"cardNumber"
+												"dateOfBirth"
 											)}
-											onBlur={handleBlur("cardNumber")}
-											value={values.cardNumber}
+											onBlur={handleBlur("dateOfBirth")}
+											value={values.dateOfBirth}
 											style={styles.input}
 										></TextInput>
-										{values.cardNumber.length >= 1 &&
-											(errors.cardNumber &&
-											touched.cardNumber ? (
+										{values.dateOfBirth.length >= 1 &&
+											(errors.dateOfBirth &&
+											touched.dateOfBirth ? (
 												<FontAwesome
 													name="times"
 													size={20}
@@ -142,102 +136,21 @@ const PersonalInformationChangeModal = ({
 													style={styles.inputConfirm}
 												/>
 											))}
-										{errors.cardNumber &&
-										touched.cardNumber ? (
+										{errors.dateOfBirth &&
+										touched.dateOfBirth ? (
 											<Text
 												style={styles.invalidSignUpText}
 											>
-												{errors.cardNumber}
+												{errors.dateOfBirth}
 											</Text>
 										) : null}
 									</View>
-									<View
-										style={[
-											styles.textInput,
-											errors.expireDate &&
-											touched.expireDate
-												? styles.invalidBox
-												: null,
-										]}
-									>
-										<TextInput
-											placeholder="Expire Date"
-											onChangeText={handleChange(
-												"expireDate"
-											)}
-											onBlur={handleBlur("expireDate")}
-											value={values.expireDate}
-											style={styles.input}
-										></TextInput>
-										{values.expireDate.length >= 1 &&
-											(errors.expireDate &&
-											touched.expireDate ? (
-												<FontAwesome
-													name="times"
-													size={20}
-													color="red"
-													style={styles.inputConfirm}
-												/>
-											) : (
-												<Ionicons
-													name="checkmark-sharp"
-													size={20}
-													color="green"
-													style={styles.inputConfirm}
-												/>
-											))}
-										{errors.expireDate &&
-										touched.expireDate ? (
-											<Text
-												style={styles.invalidSignUpText}
-											>
-												{errors.expireDate}
-											</Text>
-										) : null}
-									</View>
-									<View
-										style={[
-											styles.textInput,
-											errors.id && touched.id
-												? styles.invalidBox
-												: null,
-										]}
-									>
-										<TextInput
-											placeholder="CVV"
-											onChangeText={handleChange("id")}
-											onBlur={handleBlur("id")}
-											value={values.id}
-											style={styles.input}
-										></TextInput>
-										{values.id.length >= 1 &&
-											(errors.id && touched.id ? (
-												<FontAwesome
-													name="times"
-													size={20}
-													color="red"
-													style={styles.inputConfirm}
-												/>
-											) : (
-												<Ionicons
-													name="checkmark-sharp"
-													size={20}
-													color="green"
-													style={styles.inputConfirm}
-												/>
-											))}
-										{errors.id && touched.id ? (
-											<Text
-												style={styles.invalidSignUpText}
-											>
-												{errors.id}
-											</Text>
-										) : null}
-									</View>
+									
+									
 								</View>
 								<View style={styles.button}>
 									<Pressable onPress={() => handleSubmit()}>
-										<Text>ADD CARD</Text>
+										<Text>Update profile</Text>
 									</Pressable>
 								</View>
 							</>
