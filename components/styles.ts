@@ -403,8 +403,8 @@ const productCardFavorites = StyleSheet.create({
 
 const shippingAddressCard = StyleSheet.create({
     container:{
-        width:300,
-        gap:10,
+        width:'100%',
+        gap:20,
         backgroundColor:'white',
         padding:10,
         elevation:2,
@@ -443,6 +443,9 @@ const shippingAddressCard = StyleSheet.create({
         borderRadius:20,
         justifyContent:'center',
         alignItems:'center'
+    },
+    addressrange:{
+        gap:5
     }
 })
 const paymentCard = StyleSheet.create({

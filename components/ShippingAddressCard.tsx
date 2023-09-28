@@ -13,13 +13,13 @@ const ShippingAddressCard = (details: shippingProps) => {
 	const [checked, setChecked] = useState<boolean>(false);
 
 	return (
-		<View>
+		
 			<View style={styles.container}>
 				<View style={styles.titlerange}>
 					<Text>{details.title}</Text>
 					<Text style={styles.edit}>Edit</Text>
 				</View>
-				<View>
+				<View style={styles.addressrange}>
 					<Text>{details.streetAddress}</Text>
 					<Text>{details.mainAddress}</Text>
 				</View>
@@ -43,7 +43,7 @@ const ShippingAddressCard = (details: shippingProps) => {
 				</View>
 			</View>
 			
-		</View>
+		
 	);
 };
 
