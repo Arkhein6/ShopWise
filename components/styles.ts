@@ -113,8 +113,8 @@ const productCardCategory= StyleSheet.create({
 })
 const productCardBag = StyleSheet.create({
     container:{
-        width:300,
-        height:120,
+        width:'100%',
+        height:140,
         flexDirection:'row',
         borderRadius:10,
         backgroundColor:'white',
