@@ -30,6 +30,7 @@ const TabLayout = () => {
             tabBarIcon: ({focused,color,size}) => {
                 return <Fontisto name="shopping-bag" size={size} color={color} />
             },
+
             
 
         }}/>
@@ -45,9 +46,11 @@ const TabLayout = () => {
             },
             headerShown:true,
             headerTitle:'',
-            headerRight: () => (
-                <MaterialIcons name="search" size={24} color="black" />
-            )
+            headerStyle:{
+                backgroundColor:'#F5F5F5'
+              },
+        headerShadowVisible:false,
+
         }}/>
         
     </Tabs>
