@@ -7,7 +7,7 @@ import { Link } from "expo-router";
 
 const index = () => {
 	return (
-		<View style={{ gap: 10, backgroundColor: "white", flex: 1 }}>
+		<View style={{ gap: 10, flex: 1 }}>
 			<View style={[styles.inner, { alignSelf: "center" }]}>
 				<Text style={styles.maintitle}>My Profile</Text>
 				<View style={styles.imagerange}>
