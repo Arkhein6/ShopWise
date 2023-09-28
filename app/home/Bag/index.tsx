@@ -42,6 +42,30 @@ const index = () => {
 			size: "M",
 			price: 43,
 			imageUrl: roughImage,
+		},{
+			itemName: "Sport Dress",
+			color: "Black",
+			size: "M",
+			price: 43,
+			imageUrl: roughImage,
+		},{
+			itemName: "Sport Dress",
+			color: "Black",
+			size: "M",
+			price: 43,
+			imageUrl: roughImage,
+		},{
+			itemName: "Sport Dress",
+			color: "Black",
+			size: "M",
+			price: 43,
+			imageUrl: roughImage,
+		},{
+			itemName: "Sport Dress",
+			color: "Black",
+			size: "M",
+			price: 43,
+			imageUrl: roughImage,
 		},
 	];
 	return (
@@ -53,14 +77,20 @@ const index = () => {
 			<View
 				style={{
 					width: "90%",
+                    height:'100%',
+                    gap:20
+
 				}}
 			>
-				<Text>My Bag</Text>
+				<Text style={{
+                    fontWeight:'bold',
+                    fontSize:30
+                }}>My Bag</Text>
 				<ScrollView
 					contentContainerStyle={{
 						gap: 20,
 					}}
-				>
+				showsVerticalScrollIndicator={false}>
 					{bagOrder.map((curr, idx) => (
 						<Pressable>
 							<ProductCardBag
@@ -73,7 +103,7 @@ const index = () => {
 						</Pressable>
 					))}
 				</ScrollView>
-				<View>
+				<View style={styles.ordercheckoutrange}>
 					<View style={styles.promorange}>
                         
 						<TextInput placeholder="Enter your promo code"></TextInput>
@@ -85,7 +115,7 @@ const index = () => {
 					<View style={styles.checkoutrange}>
 						<View style={styles.amountrange}>
 							<Text style={styles.graytext}>Total Amount:</Text>
-							<Text style={styles.amount}>TotalAmountcalc$</Text>
+							<Text style={styles.amount}>120$</Text>
 						</View>
 						<Pressable style={styles.checkout}>
 							<Text

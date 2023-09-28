@@ -11,6 +11,7 @@ const bag = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         height:50,
+        marginBottom:20
 
     },
     amountrange:{
@@ -38,6 +39,9 @@ const bag = StyleSheet.create({
         borderRadius:15,
         alignItems:'center',
         justifyContent:'center'
+    },
+    ordercheckoutrange:{
+        gap:20
     }
 
 })
