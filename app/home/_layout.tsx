@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router'
 import React from 'react'
 import { MaterialIcons,Entypo,Fontisto } from '@expo/vector-icons';
 
+
 const TabLayout = () => {
   return (
     <Tabs screenOptions={{
