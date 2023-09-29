@@ -2,7 +2,11 @@ import { View, Text, ScrollView, Pressable } from "react-native";
 import React from "react";
 import { shopCategories as styles } from "./styles";
 import { Link } from "expo-router";
-import { MaterialCommunityIcons,FontAwesome5,Ionicons } from '@expo/vector-icons';
+import {
+	MaterialCommunityIcons,
+	FontAwesome5,
+	Ionicons,
+} from "@expo/vector-icons";
 
 const index = () => {
 	const categories: string[] = [
@@ -30,45 +34,65 @@ const index = () => {
 						}}
 						style={[
 							styles.shopcategories,
-							current === currentCategory ? styles.shopcurrentcategory : null,
+							current === currentCategory
+								? styles.shopcurrentcategory
+								: null,
 						]}
 					>
 						<Text
 							style={
-								current === currentCategory ? { color: "white" } : null
+								current === currentCategory
+									? { color: "white" }
+									: null
 							}
 						>
 							{current}
 						</Text>
 					</Pressable>
 				))}
-                <Link href={'/home/Shop/Categories'} asChild>
-                <Pressable style={styles.allcategoriesbutton}>
-                    <Text>View all</Text>
-                </Pressable>
-                </Link>
+				<Link href={"/home/Shop/Categories"} asChild>
+					<Pressable style={styles.allcategoriesbutton}>
+						<Text>View all</Text>
+					</Pressable>
+				</Link>
 			</ScrollView>
-			<View style={{
-				flexDirection:'row'
-			}}>
-				<View style={{
-				flexDirection:'row'
-			}}> 
-				<Ionicons name="filter-sharp" size={24} color="black" />
-					<Text>Filters</Text>
-				</View>
-				<View style={{
-				flexDirection:'row'
-			}}>
-				<MaterialCommunityIcons name="swap-vertical" size={24} color="black" />
-					<Text>Price: lowest to high</Text>
-				</View>
-				<View style={{
-				flexDirection:'row'
-			}}>
-				<FontAwesome5 name="th-list" size={24} color="black" />
-				<Ionicons name="grid-sharp" size={24} color="black" />
-				</View>
+			<View
+				style={{
+					flexDirection: "row",
+				}}
+			>
+				<Link href={"/home/Shop/modals/Filters"} asChild>
+					<Pressable
+						style={{
+							flexDirection: "row",
+						}}
+					>
+						<Ionicons name="filter-sharp" size={24} color="black" />
+						<Text>Filters</Text>
+					</Pressable>
+				</Link>
+				<Link href={"/home/Shop/modals/SortModal"} asChild>
+					<Pressable
+						style={{
+							flexDirection: "row",
+						}}
+					>
+						<MaterialCommunityIcons
+							name="swap-vertical"
+							size={24}
+							color="black"
+						/>
+						<Text>Price: lowest to high</Text>
+					</Pressable>
+				</Link>
+				<Pressable
+					style={{
+						flexDirection: "row",
+					}}
+				>
+					<FontAwesome5 name="th-list" size={24} color="black" />
+					<Ionicons name="grid-sharp" size={24} color="black" />
+				</Pressable>
 			</View>
 		</View>
 	);
