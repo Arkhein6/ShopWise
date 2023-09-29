@@ -2,6 +2,7 @@ import { View, Text, ScrollView, Pressable } from "react-native";
 import React from "react";
 import { shopCategories as styles } from "./styles";
 import { Link } from "expo-router";
+import { MaterialCommunityIcons,FontAwesome5,Ionicons } from '@expo/vector-icons';
 
 const index = () => {
 	const categories: string[] = [
@@ -47,6 +48,28 @@ const index = () => {
                 </Pressable>
                 </Link>
 			</ScrollView>
+			<View style={{
+				flexDirection:'row'
+			}}>
+				<View style={{
+				flexDirection:'row'
+			}}> 
+				<Ionicons name="filter-sharp" size={24} color="black" />
+					<Text>Filters</Text>
+				</View>
+				<View style={{
+				flexDirection:'row'
+			}}>
+				<MaterialCommunityIcons name="swap-vertical" size={24} color="black" />
+					<Text>Price: lowest to high</Text>
+				</View>
+				<View style={{
+				flexDirection:'row'
+			}}>
+				<FontAwesome5 name="th-list" size={24} color="black" />
+				<Ionicons name="grid-sharp" size={24} color="black" />
+				</View>
+			</View>
 		</View>
 	);
 };
