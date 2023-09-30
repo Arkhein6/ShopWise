@@ -12,7 +12,8 @@ const shopCategories = StyleSheet.create({
         paddingLeft:15,
         paddingRight:15,
         paddingTop:10,
-        paddingBottom:10
+        paddingBottom:10,
+        
     },
     shopcategoriescontainer:{
         gap:10
