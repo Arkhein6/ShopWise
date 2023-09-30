@@ -11,6 +11,9 @@ const rootLayout = () => {
       }}/>
       <Stack.Screen name="Categories" options={{
       }}/>
+      <Stack.Screen name="modals" options={{
+        headerShown:false
+      }}/>
     </Stack>
   )
 }
