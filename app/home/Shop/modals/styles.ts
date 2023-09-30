@@ -37,7 +37,11 @@ const sortModal = StyleSheet.create({
         fontWeight:'bold'
     }
 })
+const filters = StyleSheet.create({
+
+})
 
 export {
-    sortModal
+    sortModal,
+    filters
 }
