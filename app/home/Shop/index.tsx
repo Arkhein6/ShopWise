@@ -7,6 +7,7 @@ import {
 	FontAwesome5,
 	Ionicons,
 } from "@expo/vector-icons";
+import SortModal from "./modals/SortModal";
 
 const index = () => {
 	const categories: string[] = [
@@ -19,6 +20,13 @@ const index = () => {
 	];
 	const [currentCategory, setCurrentCategory] = useState(categories[0]);
 	const [productView, setProductView] = useState<"Grid" | "List">("Grid");
+	const [modalVisible,setModalVisible] = useState<boolean>(false)
+
+	const modalHandler = (): void => {
+		setModalVisible((curr) => !curr)
+	}
+
+
 	return (
 		<View>
 			<View style={{
@@ -96,7 +104,9 @@ const index = () => {
 							alignItems:'center',
 					gap:5
 
-						}}
+						}
+					}
+					onPress={modalHandler}
 					>
 						<MaterialCommunityIcons
 							name="swap-vertical"
@@ -121,7 +131,7 @@ const index = () => {
 					)}
 				</Pressable>
 			</View>
-			
+			<SortModal onClose={modalHandler} visible={modalVisible}></SortModal>
 			</View>
 		</View>
 	);
