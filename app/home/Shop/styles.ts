@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 const shopCategories = StyleSheet.create({
     maintitle:{
         fontSize:40,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        paddingLeft:'5%'
     },
     shopcategories:{
         backgroundColor:'white',
