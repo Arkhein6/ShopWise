@@ -15,7 +15,12 @@ const SortModal = ({
 			animationType="slide"
 			transparent={true}
 		>
-			<Pressable onPress={onClose}></Pressable>
+			<Pressable
+				onPress={onClose}
+				style={{
+					flex: 1,
+				}}
+			></Pressable>
 			<View>
 				<Pressable>
 					<Text>Popular</Text>

@@ -76,7 +76,7 @@ const index = () => {
 					
 				}}
 			>
-				<Link href={"/home/Shop/modals/Filters"} asChild>
+				<>
 					<Pressable
 						style={{
 							flexDirection: "row",
@@ -88,8 +88,8 @@ const index = () => {
 						<Ionicons name="filter-sharp" size={20} color="black" />
 						<Text>Filters</Text>
 					</Pressable>
-				</Link>
-				<Link href={"/home/Shop/modals/SortModal"} asChild>
+				</>
+				<>
 					<Pressable
 						style={{
 							flexDirection: "row",
@@ -105,7 +105,7 @@ const index = () => {
 						/>
 						<Text>Price: lowest to high</Text>
 					</Pressable>
-				</Link>
+				</>
 				<Pressable style={{
 				}}
 					onPress={() =>
@@ -121,6 +121,7 @@ const index = () => {
 					)}
 				</Pressable>
 			</View>
+			
 			</View>
 		</View>
 	);
