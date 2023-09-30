@@ -78,7 +78,7 @@ const index = () => {
 						paddingRight: "5%",
 					}}
 				>
-					<>
+					<Link href={'/home/Shop/modals/Filters'} asChild>
 						<Pressable
 							style={{
 								flexDirection: "row",
@@ -93,7 +93,7 @@ const index = () => {
 							/>
 							<Text>Filters</Text>
 						</Pressable>
-					</>
+					</Link>
 					<>
 						<Pressable
 							style={{
