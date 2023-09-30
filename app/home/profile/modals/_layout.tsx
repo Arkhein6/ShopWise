@@ -10,6 +10,10 @@ const rootLayout = () => {
       <Stack.Screen name="addShippingAddress" options={{
         headerShown:true,
         headerTitle:"Adding Shipping Address",
+        headerStyle:{
+          backgroundColor:'#F5F5F5'
+        },
+        
         
       }} />
     </Stack>
