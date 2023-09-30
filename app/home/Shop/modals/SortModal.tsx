@@ -1,5 +1,8 @@
 import { View, Text, Modal, Pressable } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { sortModal as styles } from "./styles";
+
+type sortAbbreviations = "P" | "N" | "C" | "Pl" | "Ph";
 
 const SortModal = ({
 	visible,
@@ -8,6 +11,15 @@ const SortModal = ({
 	visible: boolean;
 	onClose: () => void;
 }) => {
+	const sortArray: { sort: string; abbre: sortAbbreviations }[] = [
+		{ sort: "Popular", abbre: "P" },
+		{ sort: "Newest", abbre: "N" },
+		{ sort: "Customer Review", abbre: "C" },
+		{ sort: "Price: lowest to high", abbre: "Pl" },
+		{ sort: "Price: highest to low", abbre: "Ph" },
+	];
+
+	const [currentSort, setCurrentSort] = useState<sortAbbreviations>("P");
 	return (
 		<Modal
 			visible={visible}
@@ -17,26 +29,23 @@ const SortModal = ({
 		>
 			<Pressable
 				onPress={onClose}
-				style={{
-					flex: 1,
-				}}
+				style={styles.modaloverlay}
 			></Pressable>
-			<View>
-				<Pressable>
-					<Text>Popular</Text>
-				</Pressable>
-				<Pressable>
-					<Text>Newest</Text>
-				</Pressable>
-				<Pressable>
-					<Text>Customer Review</Text>
-				</Pressable>
-				<Pressable>
-					<Text>Price: lowest to high</Text>
-				</Pressable>
-				<Pressable>
-					<Text>Price: highest to low</Text>
-				</Pressable>
+			<View style={styles.container}>
+				<Text style={styles.title}>Sort by</Text>
+				{sortArray.map((current) => (
+					<Pressable
+						onPressIn={() => setCurrentSort(current.abbre)}
+						style={[
+							styles.button,
+							current.abbre === currentSort &&
+								styles.buttonPressed,
+						]}
+					>
+						<Text style={current.abbre === currentSort && styles.buttontextpressed}>{current.sort}</Text>
+					</Pressable>
+				))}
+				
 			</View>
 		</Modal>
 	);
