@@ -6,11 +6,14 @@ import {
 	ImageSourcePropType,
 	TextInput,
 } from "react-native";
-import React from "react";
+import {useState} from "react";
 import roughImage from "../../../assets/images/pexels8.jpg";
 import ProductCardBag from "../../../components/ProductCardBag";
 import { bag as styles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
+import PromoCodeModal from "./modals/PromoCodeModal";
+import { Link } from "expo-router";
+import CheckoutModal from "./modals/CheckoutModal";
 
 type bagOrderProps = {
 	itemName: string;
@@ -19,55 +22,65 @@ type bagOrderProps = {
 	price: number;
 	imageUrl: ImageSourcePropType;
 };
+const bagOrder: bagOrderProps[] = [
+	{
+		itemName: "pullover",
+		color: "Black",
+		size: "L",
+		price: 51,
+		imageUrl: roughImage,
+	},
+	{
+		itemName: "T-Shirt",
+		color: "Gray",
+		size: "L",
+		price: 30,
+		imageUrl: roughImage,
+	},
+	{
+		itemName: "Sport Dress",
+		color: "Black",
+		size: "M",
+		price: 43,
+		imageUrl: roughImage,
+	},{
+		itemName: "Sport Dress",
+		color: "Black",
+		size: "M",
+		price: 43,
+		imageUrl: roughImage,
+	},{
+		itemName: "Sport Dress",
+		color: "Black",
+		size: "M",
+		price: 43,
+		imageUrl: roughImage,
+	},{
+		itemName: "Sport Dress",
+		color: "Black",
+		size: "M",
+		price: 43,
+		imageUrl: roughImage,
+	},{
+		itemName: "Sport Dress",
+		color: "Black",
+		size: "M",
+		price: 43,
+		imageUrl: roughImage,
+	},
+];
 
 const index = () => {
-	const bagOrder: bagOrderProps[] = [
-		{
-			itemName: "pullover",
-			color: "Black",
-			size: "L",
-			price: 51,
-			imageUrl: roughImage,
-		},
-		{
-			itemName: "T-Shirt",
-			color: "Gray",
-			size: "L",
-			price: 30,
-			imageUrl: roughImage,
-		},
-		{
-			itemName: "Sport Dress",
-			color: "Black",
-			size: "M",
-			price: 43,
-			imageUrl: roughImage,
-		},{
-			itemName: "Sport Dress",
-			color: "Black",
-			size: "M",
-			price: 43,
-			imageUrl: roughImage,
-		},{
-			itemName: "Sport Dress",
-			color: "Black",
-			size: "M",
-			price: 43,
-			imageUrl: roughImage,
-		},{
-			itemName: "Sport Dress",
-			color: "Black",
-			size: "M",
-			price: 43,
-			imageUrl: roughImage,
-		},{
-			itemName: "Sport Dress",
-			color: "Black",
-			size: "M",
-			price: 43,
-			imageUrl: roughImage,
-		},
-	];
+	const [promoCodeModalVisible,setPromoCodeModalVisible] = useState<boolean>(false)
+	const [checkoutModalVisible,setCheckoutModalVisible] = useState<boolean>(false)
+  
+	const openModal = (handler: React.Dispatch<React.SetStateAction<boolean>>)  => {
+	  handler(true)
+  
+	}
+	const closeModal = (handler: React.Dispatch<React.SetStateAction<boolean>>): void => {
+	  handler(false)
+	}
 	return (
 		<View
 			style={{
@@ -92,7 +105,7 @@ const index = () => {
 					}}
 				showsVerticalScrollIndicator={false}>
 					{bagOrder.map((curr, idx) => (
-						<Pressable>
+						<Pressable key={idx}>
 							<ProductCardBag
 								imageUrl={curr.imageUrl}
 								title={curr.itemName}
@@ -104,31 +117,36 @@ const index = () => {
 					))}
 				</ScrollView>
 				<View style={styles.ordercheckoutrange}>
-					<View style={styles.promorange}>
-                        
-						<TextInput placeholder="Enter your promo code"></TextInput>
+					<Pressable onPress={() => openModal(setPromoCodeModalVisible)} style={styles.promorange}> 
+						<View>
+							<Text>Enter your Promo code</Text>
+						</View>
 						<Pressable style={styles.promoicon}>
 
                         <AntDesign name="arrowright" size={20} color="white" />
                         </Pressable>
-					</View>
+					</Pressable>
 					<View style={styles.checkoutrange}>
 						<View style={styles.amountrange}>
 							<Text style={styles.graytext}>Total Amount:</Text>
 							<Text style={styles.amount}>120$</Text>
 						</View>
-						<Pressable style={styles.checkout}>
+						<>
+						<Pressable onPress={() => openModal(setCheckoutModalVisible)} style={styles.checkout}>
 							<Text
 								style={{
 									color: "white",
 								}}
-							>
+								>
 								Checkout
 							</Text>
 						</Pressable>
+								</>
 					</View>
 				</View>
 			</View>
+			<PromoCodeModal visible={promoCodeModalVisible} onClose={() => closeModal(setPromoCodeModalVisible)}/>
+			<CheckoutModal visible={checkoutModalVisible} onClose={() => closeModal(setCheckoutModalVisible)}/>
 		</View>
 	);
 };
