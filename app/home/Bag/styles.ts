@@ -29,14 +29,16 @@ const bag = StyleSheet.create({
         justifyContent:'space-between',
         height:50,
         alignItems:'center',
-        backgroundColor:'white'
+        backgroundColor:'white',
+        borderRadius:15,
+        paddingLeft:10
         
     },
     promoicon:{
-        height:30,
-        width:30,
+        height:40,
+        width:40,
         backgroundColor:'red',
-        borderRadius:15,
+        borderRadius:20,
         alignItems:'center',
         justifyContent:'center'
     },
@@ -46,7 +48,10 @@ const bag = StyleSheet.create({
 
 })
 
+const checkout = StyleSheet.create({
 
+})
 export {
-    bag
-}
+    bag,
+    checkout
+}   
