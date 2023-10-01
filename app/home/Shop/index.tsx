@@ -8,6 +8,8 @@ import {
 	Ionicons,
 } from "@expo/vector-icons";
 import SortModal from "./modals/SortModal";
+import FilterModal from "./modals/FilterModal";
+
 
 const index = () => {
 	const categories: string[] = [
@@ -20,10 +22,14 @@ const index = () => {
 	];
 	const [currentCategory, setCurrentCategory] = useState(categories[0]);
 	const [productView, setProductView] = useState<"Grid" | "List">("Grid");
-	const [modalVisible, setModalVisible] = useState<boolean>(false);
+	const [sortModalVisible, setSortModalVisible] = useState<boolean>(false);
+	const [filterModalVisible, setFilterModalVisible] =
+		useState<boolean>(false);
 
-	const modalHandler = (): void => {
-		setModalVisible((curr) => !curr);
+	const modalHandler = (modal: string): void => {
+		modal === "filter"
+			? setFilterModalVisible((curr) => !curr)
+			: setSortModalVisible((curr) => !curr);
 	};
 
 	return (
@@ -78,8 +84,9 @@ const index = () => {
 						paddingRight: "5%",
 					}}
 				>
-					<Link href={'/home/Shop/modals/Filters'} asChild>
+					<>
 						<Pressable
+							onPress={() => modalHandler("filter")}
 							style={{
 								flexDirection: "row",
 								alignItems: "center",
@@ -93,7 +100,7 @@ const index = () => {
 							/>
 							<Text>Filters</Text>
 						</Pressable>
-					</Link>
+					</>
 					<>
 						<Pressable
 							style={{
@@ -101,7 +108,7 @@ const index = () => {
 								alignItems: "center",
 								gap: 5,
 							}}
-							onPress={modalHandler}
+							onPress={() => modalHandler("sort")}
 						>
 							<MaterialCommunityIcons
 								name="swap-vertical"
@@ -136,9 +143,13 @@ const index = () => {
 				</View>
 			</View>
 			<SortModal
-				onClose={modalHandler}
-				visible={modalVisible}
-			></SortModal>
+				onClose={() => modalHandler("sort")}
+				visible={sortModalVisible}
+			/>
+			<FilterModal
+				onClose={() => modalHandler("filter")}
+				visible={filterModalVisible}
+			/>
 		</View>
 	);
 };
