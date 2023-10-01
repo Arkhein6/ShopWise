@@ -33,8 +33,8 @@ const SortModal = ({
 			></Pressable>
 			<View style={styles.container}>
 				<Text style={styles.title}>Sort by</Text>
-				{sortArray.map((current) => (
-					<Pressable
+				{sortArray.map((current,idx) => (
+					<Pressable key={idx}
 						onPressIn={() => setCurrentSort(current.abbre)}
 						style={[
 							styles.button,
