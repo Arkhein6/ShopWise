@@ -4,7 +4,8 @@ import AnimatedStickyHeader from "../../../components/AnimatedStickyHeader";
 function index() {
 	return (
 		<AnimatedStickyHeader>
-			<ScrollView>
+			<ScrollView >
+				
 				
 			</ScrollView>
 		</AnimatedStickyHeader>
