@@ -39,6 +39,8 @@ const TabLayout = () => {
             tabBarIcon: ({focused,color,size}) => {
                 return <MaterialIcons name="favorite" size={size} color={color} />            
             },
+            headerShown:true,
+            headerTitle:'',
 
         }} />
         <Tabs.Screen name='profile'  options={{
