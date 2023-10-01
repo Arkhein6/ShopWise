@@ -7,11 +7,6 @@ const _layout = () => {
   <Stack screenOptions={{
     headerShown:false
   }}>
-    <Stack.Screen name='Filters' options={{
-      headerShown:true,
-      headerTitleAlign:'center'
-    }} />
-
     </Stack>
   )
 }
